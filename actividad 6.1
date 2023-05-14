@@ -1,1 +1,47 @@
+using System.Globalization;
+using Internal;
+using System;
+using System.Threading;
 
+public class Estudiante {
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+    public Profesor ProfesorAsociado { get; set; }
+}
+
+public class Profesor {
+    public string Nombre { get; set; }
+    public string Asignatura { get; set; }
+}
+
+public class Program {
+    static void Main(string[] args) {
+        // Creamos un objeto de tipo Profesor
+        Profesor profesor = new Profesor {
+            Nombre = "JULIO CASTRO",
+            Asignatura = "INFORMATICA"
+        };
+
+        // Creamos dos objetos de tipo Estudiante
+        Estudiante estudiante1 = new Estudiante {
+            Nombre = "Elenna",
+            Edad = 16,
+            ProfesorAsociado = profesor
+        };
+
+        Estudiante estudiante2 = new Estudiante {
+            Nombre = "Eric",
+            Edad = 22,
+            ProfesorAsociado = profesor
+        
+        };
+
+        // Mostramos la información de los estudiantes y su profesor asociado
+        Console.WriteLine("Información de los estudiantes:") ;
+        Console.WriteLine();
+        Console.WriteLine($"Estudiante 1 - Nombre = {estudiante1.Nombre},Edad:  {estudiante1.Edad} , Profesor Asociado : { estudiante1.ProfesorAsociado.Nombre}" );
+        Console.WriteLine($"Estudiante 2 - Nombre: {estudiante2.Nombre}, Edad: {estudiante2.Edad}, Profesor Asociado: {estudiante2.ProfesorAsociado.Nombre}");
+
+        Console.ReadLine();
+    }
+}
